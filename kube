@@ -8,7 +8,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: smallest-spring-server
+      app: hello-world-server
   template:
     metadata:
       labels:
