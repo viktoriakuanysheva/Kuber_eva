@@ -16,7 +16,7 @@ spec:
 spec:
   containers:
   - name: smallest-spring-app
-    image: victoriakuanysheva/smallest-spring-app
+    image: victoriakuanysheva/smallest-spring-app:8080
     ports:
       - containerPort: 8080
       readinessProbe:
