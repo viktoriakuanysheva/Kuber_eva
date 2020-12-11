@@ -13,25 +13,26 @@ spec:
     metadata:
       labels:
         app: smallest-spring-server
-spec:
-  containers:
-  - name: smallest-spring-app
-    image: victoriakuanysheva/smallest-spring-app:8011
-    ports: 443
-      - containerPort: 8080
-      readinessProbe:
+  spec:
+   containers:
+   - name: smallest-spring-app
+     image: victoriakuanysheva/smallest-spring-app:8011
+     ports: 
+       - containerPort: 8080
+       - name: eva
+     readinessProbe:
           httpGet:
             path: /
             port: 8080
           initialDelaySeconds: 40
           periodSeconds: 35
-          livenessProbe:
+     livenessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: eva
           initialDelaySeconds: 40
           periodSeconds: 35
-    env:
+     env:
       - name: spring.config.location
         value: application.properties
   volumes:
