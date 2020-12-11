@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: smallest-spring-server
+        app: hello-world-server
 spec:
   containers:
   - name: smallest-spring-app
