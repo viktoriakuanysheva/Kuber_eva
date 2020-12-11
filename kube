@@ -8,15 +8,15 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: hello-world-server
+      app: smallest-spring-server
   template:
     metadata:
       labels:
-        app: hello-world-server
+        app: smallest-spring-server
 spec:
   containers:
   - name: smallest-spring-app
-    image: victoriakuanysheva/smallest-spring-app:8080
+    image: victoriakuanysheva/smallest-spring-app:8011
     ports:
       - containerPort: 8080
       readinessProbe:
