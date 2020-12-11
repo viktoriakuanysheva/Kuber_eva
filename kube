@@ -18,7 +18,7 @@ spec:
   - name: smallest-spring-app
     image: victoriakuanysheva/smallest-spring-app
     ports:
-      - containerPort: 8080
+      - containerPort: 5000
       readinessProbe:
           httpGet:
             path: /
@@ -28,7 +28,7 @@ spec:
           livenessProbe:
           httpGet:
             path: /
-            port: 8989
+            port: 8080
           initialDelaySeconds: 40
           periodSeconds: 15
     env:
