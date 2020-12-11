@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: smallest-spring-app
+  namespace:  smallest-spring-app1
+ 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: smallest-spring-server
+  template:
+    metadata:
+      labels:
+        app: smallest-spring-server
+spec:
+  containers:
+  - name: smallest-spring-app
+    image: victoriakuanysheva/smallest-spring-app
+    ports:
+      - containerPort: 8080
+      readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 40
+          periodSeconds: 15
+          livenessProbe:
+          httpGet:
+            path: /
+            port: 8989
+          initialDelaySeconds: 40
+          periodSeconds: 15
+    env:
+      - name: spring.config.location
+        value: application.properties
+  volumes:
+      - name: smallest-spring-app
+        hostPath:
+          path: /opt/docker/datalook-pre-core
+          type: Directory
