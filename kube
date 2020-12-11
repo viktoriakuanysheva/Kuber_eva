@@ -17,7 +17,7 @@ spec:
   containers:
   - name: smallest-spring-app
     image: victoriakuanysheva/smallest-spring-app:8011
-    ports:
+    ports: 443
       - containerPort: 8080
       readinessProbe:
           httpGet:
